@@ -1,4 +1,10 @@
 spring:
+  rabbitmq:
+    host: 172.18.0.3
+  main:
+    allow-circular-references: true
+  zipkin:
+    base-url: http://172.18.0.3:9411
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db2_restaurant_service?useSSL=false
@@ -21,7 +27,7 @@ server:
     context-path: /api
 
 app:
-  pizza-service-url: http://localhost:8080/api/pizzas/restaurant
+  pizza-service-url: http://172.18.0.3:8080/api/pizzas/restaurant
   rabbitmq:
     add-pizzas-routingkey: q.add-pizzas-to-restaurant
     pizzas-added-routingkey: q.pizzas-added-to-restaurant
@@ -33,4 +39,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://172.18.0.3:8761/eureka/

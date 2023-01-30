@@ -1,11 +1,11 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db2_restaurant_service?useSSL=false
+    url: jdbc:mysql://localhost:3306/db2_pizza_service?useSSL=false
     username: gian
     password: Gianluca
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
     generate-ddl: true
@@ -21,12 +21,13 @@ server:
     context-path: /api
 
 app:
-  pizza-service-url: http://localhost:8080/api/pizzas/restaurant
   rabbitmq:
+    #coda da cui riceve il payload
     add-pizzas-routingkey: q.add-pizzas-to-restaurant
+    #coda su cui darà risposta
     pizzas-added-routingkey: q.pizzas-added-to-restaurant
+    #coda che mi occorre per la notifica di avvetuno processo
     pizzas-added-notification: q.pizzas-added-notification
-
 
 eureka:
   client:
