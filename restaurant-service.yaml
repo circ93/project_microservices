@@ -10,10 +10,11 @@ spring:
       ddl-auto: update
     generate-ddl: true
     show-sql: true
-
   mvc:
     path match:
       matching-strategy: ant_path_matcher
+  rabbitmq:
+    host: rabbitmq3
 
 server:
   port: 0
