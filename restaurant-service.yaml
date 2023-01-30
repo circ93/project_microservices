@@ -21,7 +21,7 @@ server:
     context-path: /api
 
 app:
-  pizza-service-url: http://localhost:8080/api/pizzas/restaurant
+  pizza-service-url: http://gateway-service:8080/api/pizzas/restaurant
   rabbitmq:
     add-pizzas-routingkey: q.add-pizzas-to-restaurant
     pizzas-added-routingkey: q.pizzas-added-to-restaurant
@@ -33,7 +33,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://discovery-service:8761/eureka/
 
 management:
   health:
